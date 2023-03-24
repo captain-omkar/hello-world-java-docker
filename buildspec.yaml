@@ -7,7 +7,12 @@ phases:
       - mvn clean install
       - echo Logging in to Amazon ECR...
       - aws --version
-      - sonar-scanner -X -Dsonar.projectKey=my-proj -Dsonar.java.binaries=target/classes -Dsonar.sources=. -Dsonar.host.url=http://3.91.234.181:80 -Dsonar.login=24685e8524aded3a927eb1e72448aff666660a75
+      - sonar-scanner -X \
+         -Dsonar.projectKey=my-project \
+         -Dsonar.sources=src \
+         -Dsonar.host.url=http://3.91.234.181:80 \
+         -Dsonar.login=24685e8524aded3a927eb1e72448aff666660a75 \
+         -Dsonar.java.binaries=target/classes
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 086349442762.dkr.ecr.us-east-1.amazonaws.com
       - REPOSITORY_URI=086349442762.dkr.ecr.us-east-1.amazonaws.com/loco
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
