@@ -7,7 +7,9 @@ phases:
     commands:
       - apt-get update
       - apt-get install -y gnupg
-      - wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.1.4180-linux.zip
+      - sudo apt-get update && sudo apt-get install -y curl
+      - curl -sSLO https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.1.4180-linux.zip
+
       - unzip -t sonar-scanner-cli-4.7.1.4180-linux.zip
       - ln -s /opt/sonar-scanner-4.7.1.4180-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner
  
