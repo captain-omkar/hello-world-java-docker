@@ -2,10 +2,10 @@ version: 0.2
 
 
 phases:
-  install:
-    runtime-versions:
+#   install:
+#     runtime-versions:
 #     php: 7.3
-      java: corretto11
+#       java: corretto11
   
     commands:
       - apt-get update
