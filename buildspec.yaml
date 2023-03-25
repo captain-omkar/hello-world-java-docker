@@ -2,6 +2,15 @@ version: 0.2
 
 
 phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      - apt-get update
+      - apt-get install -y gnupg
+      - wget -qO - https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.1.4180-linux.zip | bsdtar -xf- -C /opt/
+      - ln -s /opt/sonar-scanner-4.7.1.4180-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner
+ 
   pre_build:
     commands:
       - mvn clean install
@@ -10,7 +19,7 @@ phases:
       - sonar-scanner -X \
          -Dsonar.projectKey=my-project \
          -Dsonar.sources=src \
-         -Dsonar.host.url=http://3.91.234.181:80 \
+         -Dsonar.host.url=http://204.236.198.2:80 \
          -Dsonar.login=24685e8524aded3a927eb1e72448aff666660a75 \
          -Dsonar.java.binaries=target/classes
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 086349442762.dkr.ecr.us-east-1.amazonaws.com
