@@ -2,18 +2,11 @@ version: 0.2
 
 
 phases:
-#   install:
-#     runtime-versions:
-#     php: 7.3
-#       java: corretto11
-  
+  install:
     commands:
-      - apt-get update
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.4.0.2170-linux.zip
-      - unzip sonar-scanner-cli-4.4.0.2170-linux.zip
-      - mv sonar-scanner-4.4.0.2170-linux /opt/sonar-scanner
-      - chmod -R 775 /opt/sonar-scanner
-      - echo "stage pre_build completed"
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
  
   pre_build:
     commands:
