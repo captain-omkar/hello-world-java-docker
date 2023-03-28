@@ -1,7 +1,7 @@
 version: 0.2
 
 env:
-  git_access_token: "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"
+  git_access_token: "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"
   repo_name: "kubernetes-blue-green-deployment-with-argo-rollout"
   repo_owner: "captain-omkar"
 
