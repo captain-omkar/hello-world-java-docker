@@ -1,9 +1,24 @@
 version: 0.2
 
+env:
+  git_access_token: "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"
+  repo_name: "kubernetes-blue-green-deployment-with-argo-rollout"
+  repo_owner: "captain-omkar"
 
 phases:
   install:
     commands:
+      - git config --global credential.helper '!aws codecommit credential-helper $@'
+      - git config --global credential.UseHttpPath true
+      - echo "#!/bin/bash\n echo $git_access_token" > ~/token-helper.sh
+      - chmod +x ~/token-helper.sh
+      - export GIT_ASKPASS=~/token-helper.sh
+      - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - cd $repo_name
+      - echo "New line of text" >> file_to_modify.txt
+      - git add .
+      - git commit -m "Commit message"
+      - git push origin HEAD
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
