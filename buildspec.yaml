@@ -14,7 +14,7 @@ phases:
       - chmod +x ~/token-helper.sh
       - export GIT_ASKPASS=~/token-helper.sh
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
-      - cd $repo_name
+      - cd kubernetes-blue-green-deployment-with-argo-rollout
       - echo "New line of text" >> file_to_modify.txt
       - git remote -v
       - git remote set-url origin git+ssh://git@github.com:captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
