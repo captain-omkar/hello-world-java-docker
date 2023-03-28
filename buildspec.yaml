@@ -10,7 +10,7 @@ phases:
     commands:
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
-      - echo "#!/bin/bash\n echo $git_access_token" > ~/token-helper.sh
+      - echo "#!/bin/bash\n echo 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" > ~/token-helper.sh
       - chmod +x ~/token-helper.sh
       - export GIT_ASKPASS=~/token-helper.sh
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
