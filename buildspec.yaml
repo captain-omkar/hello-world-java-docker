@@ -18,6 +18,8 @@ phases:
       - echo "New line of text" >> file_to_modify.txt
       - git init
       - git add .
+      - git config --global user.email "omkarchavanbldea@gmail.com"
+      - git config --global user.name "captain-omkar"
       - git commit -m "Commit message"
       - git push origin HEAD
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
