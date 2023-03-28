@@ -17,11 +17,12 @@ phases:
       - cd $repo_name
       - echo "New line of text" >> file_to_modify.txt
       - git init
+      - git remote set-url origin https://captain-omkar:$git_access_token@github.com:captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - git add .
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - git commit -m "Commit message"
-      - git push origin HEAD
+      - git push 
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
