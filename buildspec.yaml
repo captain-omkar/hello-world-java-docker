@@ -1,31 +1,44 @@
 version: 0.2
 
-env:
-  git_access_token: "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"
-  repo_name: "kubernetes-blue-green-deployment-with-argo-rollout"
-  repo_owner: "captain-omkar"
+# env:
+#   git_access_token: "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"
+#   repo_name: "kubernetes-blue-green-deployment-with-argo-rollout"
+#   repo_owner: "captain-omkar"
 
 phases:
   install:
     commands:
-      - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git config --global credential.UseHttpPath true
-      - echo $git_access_token
-      - echo "#!/bin/bash\n echo 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" > ~/token-helper.sh
-      - chmod +x ~/token-helper.sh
-      - export GIT_ASKPASS=~/token-helper.sh
+#       - git config --global credential.helper '!aws codecommit credential-helper $@'
+#       - git config --global credential.UseHttpPath true
+#       - echo $git_access_token
+#       - echo "#!/bin/bash\n echo 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" > ~/token-helper.sh
+#       - chmod +x ~/token-helper.sh
+#       - export GIT_ASKPASS=~/token-helper.sh
+#       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+#       - cd kubernetes-blue-green-deployment-with-argo-rollout
+#       - echo "New line of text" >> file_to_modify.txt
+#       - git remote -v
+#       - git config --global user.email "omkarchavanbldea@gmail.com"
+#       - git config --global user.name "captain-omkar"
+      
+#       - git add .
+      
+#       - git commit -m "Commit message"
+#       - git push 
+
+#       - git push 
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd kubernetes-blue-green-deployment-with-argo-rollout
-      - echo "New line of text" >> file_to_modify.txt
-      - git remote -v
-      
-      - git add .
+      # Create a file
+      - echo "Hello, world!" > hello.txt
+      # Set up Git configuration
       - git config --global user.email "omkarchavanbldea@gmail.com"
-      - git config --global user.name "captain-omkar"
-      - git commit -m "Commit message"
-      - git push https://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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
-
-      - git push 
+      - git config --global user.name "captainomkar"
+      # Add and commit the file
+      - git add hello.txt
+      - git commit -m "Add hello.txt"
+      # Push the changes
+      - git push https://oauth2:${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}@github.com:captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git 
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
