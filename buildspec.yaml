@@ -41,7 +41,7 @@ phases:
       - git add hello.txt
       - git commit -m "Add hello.txt"
       # Push the changes
-      - git push https://oauth2:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git 
+      - git push https://oauth2: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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git 
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
