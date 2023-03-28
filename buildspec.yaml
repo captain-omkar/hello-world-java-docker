@@ -16,9 +16,8 @@ phases:
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd $repo_name
       - echo "New line of text" >> file_to_modify.txt
-      - git init
       - git remote -v
-      - git remote set-url origin https://captain-omkar:$git_access_token@github.com:captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - git remote set-url origin git+ssh://git@github.com:captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - git add .
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
