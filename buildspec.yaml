@@ -16,6 +16,7 @@ phases:
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd $repo_name
       - echo "New line of text" >> file_to_modify.txt
+      - git init
       - git add .
       - git commit -m "Commit message"
       - git push origin HEAD
