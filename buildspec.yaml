@@ -10,6 +10,9 @@ phases:
     commands:
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd kubernetes-blue-green-deployment-with-argo-rollout
+      - git config --unset-all credential.helper
+      - git config --global --unset-all credential.helper
+      - git config --system --unset-all credential.helper
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - echo "Hello, world!" > hello.txt
@@ -17,7 +20,7 @@ phases:
       - git remote -v 
       - git add .
       - git commit -m "added"
-      - git push origin master
+      - git push 
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
