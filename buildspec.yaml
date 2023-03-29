@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    GITHUB_TOKEN: "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"
+    GITHUB_TOKEN: "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"
 
 
 phases:
