@@ -8,7 +8,7 @@ phases:
     commands:
       - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd kubernetes-blue-green-deployment-with-argo-rollout
-      - git config --global user.email "chavan.omkar2012@gmail.com"
+      - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - echo "Hello, world!" > hello.txt
       - git remote set-url origin https://captain-omkar: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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
