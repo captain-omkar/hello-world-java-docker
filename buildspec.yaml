@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    GITHUB_TOKEN: "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"
+    GITHUB_TOKEN: "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"
     REPO: "kubernetes-blue-green-deployment-with-argo-rollout"
     REPO_URL: "https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git"
 
@@ -11,7 +11,7 @@ phases:
   install:
     commands:
       - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git clone ${REPO_URL}
+      - git clone https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd ${REPO}
       - pwd
 #       - git config --unset-all credential.helper
@@ -20,11 +20,11 @@ phases:
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - echo "Hello, world!" > hello.txt
-      - git remote set-url origin https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+#       - git remote set-url origin https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - git remote -v 
       - git add .
       - git commit -m "added"
-      - git push origin
+      - git push 
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
