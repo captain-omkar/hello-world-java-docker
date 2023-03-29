@@ -1,6 +1,8 @@
 version: 0.2
 
-
+env:
+  variables:
+    GITHUB_TOKEN: ${{ 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 }}
 
 
 phases:
@@ -11,7 +13,7 @@ phases:
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - echo "Hello, world!" > hello.txt
-      - git remote set-url origin https://captain-omkar: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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - git remote set-url origin https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - git remote -v 
       - git add .
       - git commit -m "added"
