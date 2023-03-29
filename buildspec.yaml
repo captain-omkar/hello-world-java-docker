@@ -17,7 +17,7 @@ phases:
 #       - git config --global user.email "omkarchavanbldea@gmail.com"
 #       - git config --global user.name "captain-omkar"
       - echo "Hello, world!" > hello.txt
-      - git remote set-url origin https://captain-omkar:$GITHUB_TOKEN@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - git remote set-url origin https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - git remote -v 
       - git add .
       - git commit -m "added"
