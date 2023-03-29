@@ -2,15 +2,18 @@ version: 0.2
 
 env:
   variables:
-    GITHUB_TOKEN: "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"
+    GITHUB_TOKEN: "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"
+    REPO: "kubernetes-blue-green-deployment-with-argo-rollout"
+    REPO_URL: "https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git"
 
 
 phases:
   install:
     commands:
       - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git clone https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
-      - cd kubernetes-blue-green-deployment-with-argo-rollout
+      - git clone ${REPO_URL}
+      - cd ${REPO}
+      - pwd
 #       - git config --unset-all credential.helper
 #       - git config --global --unset-all credential.helper
 #       - git config --system --unset-all credential.helper
