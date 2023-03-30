@@ -2,16 +2,17 @@ version: 0.2
 
 env:
   variables:
-    GITHUB_TOKEN: "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"
+    GITHUB_TOKEN: "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"
     REPO: "kubernetes-blue-green-deployment-with-argo-rollout"
     REPO_URL: "https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git"
+    USER_NAME: "captain-omkar"
 
 
 phases:
   install:
     commands:
       - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git clone https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - git clone ${REPO_URL}
       - cd ${REPO}
       - pwd
 #       - git config --unset-all credential.helper
@@ -20,7 +21,7 @@ phases:
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - echo "Hello, world!" > hello.txt
-#       - git remote set-url origin https://captain-omkar:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - git remote set-url origin https://${USER_NAME}:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - git remote -v 
       - git add .
       - git commit -m "added"
