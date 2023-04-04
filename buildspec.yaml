@@ -14,7 +14,7 @@ phases:
     commands:
 #       - git config --global credential.helper '!aws codecommit credential-helper $@'
 #       - git config --global credential.UseHttpPath true
-      - git clone git clone https://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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
+      - git clone https://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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
       - cd kubernetes-blue-green-deployment-with-argo-rollout
       - pwd
       - ls
