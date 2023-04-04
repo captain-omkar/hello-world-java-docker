@@ -10,6 +10,8 @@ env:
 
 phases:
   install:
+    runtime-versions:
+      git: 2.33.1
     commands:
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
