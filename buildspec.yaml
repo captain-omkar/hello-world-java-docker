@@ -18,8 +18,8 @@ phases:
       - cd $REPO
       - pwd
       - ls
-      - echo GITHUB_TOKEN
-      - echo USER_NAME
+      - echo $GITHUB_TOKEN
+      - echo $USER_NAME
 #       - git config --unset-all credential.helper
 #       - git config --global --unset-all credential.helper
 #       - git config --system --unset-all credential.helper
