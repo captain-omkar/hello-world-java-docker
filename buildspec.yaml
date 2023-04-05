@@ -1,39 +1,10 @@
 version: 0.2
 
-env:
-  variables:
-    GITHUB_TOKEN: "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"
-    REPO: "kubernetes-blue-green-deployment-with-argo-rollout"
-    REPO_URL: "https://github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git"
-    USER_NAME: "captain-omkar"
-
-
 phases:
   install:
   
     commands:
-#       - git config --global credential.helper '!aws codecommit credential-helper $@'
-#       - git config --global credential.UseHttpPath true
-#       - git clone $REPO_URL
-      - git clone https://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@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git kubernetes-blue-green-deployment-with-argo-rollout
-      - cd kubernetes-blue-green-deployment-with-argo-rollout
-      - pwd
-      - ls
-      - echo $GITHUB_TOKEN
-      - echo $USER_NAME
-#       - git config --unset-all credential.helper
-#       - git config --global --unset-all credential.helper
-#       - git config --system --unset-all credential.helper
-      - git config --global user.email "omkarchavanbldea@gmail.com"
-      - git config --global user.name "captain-omkar"
-      
-      - echo "Hello, world!" > hello.txt
-      - ls
-#       - git remote set-url origin https://${USER_NAME}:${GITHUB_TOKEN}@github.com/captain-omkar/kubernetes-blue-green-deployment-with-argo-rollout.git
-      - git remote -v 
-      - git add .
-      - git commit -m "added"
-      - git push origin master
+
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
@@ -63,6 +34,16 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"order-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
+      
+      - git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/loco-manifest -c credential.helper='!aws codecommit credential-helper $@' -c credential.UseHttpPath=true
+      - cd loco-manifest
+      - echo "Hello, world!" > hello.txt
+      - ls
+      - git config --global user.email "omkarchavanbldea@gmail.com"
+      - git config --global user.name "captain-omkar"
+      - git add .
+      - git commit -m "addedd"
+      - git push
 artifacts:
   files:
    - imagedefinitions.json
