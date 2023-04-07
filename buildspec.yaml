@@ -39,7 +39,6 @@ phases:
       - cd manifest
       - cd base
       - sed -i 's|image: .*|image: $REPOSITORY_URI:$IMAGE_TAG|g' deployment.yaml
-      - 
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - git add .
