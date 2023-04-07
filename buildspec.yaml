@@ -38,7 +38,7 @@ phases:
       - git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/manifest -c credential.helper='!aws codecommit credential-helper $@' -c credential.UseHttpPath=true
       - cd manifest/base
       - ls
-      - sed -i "s|image: .*|image: $REPOSITORY_URI:$IMAGE_TAG|g" deployment.yaml
+      - sed -i "s|image: .*|image: nginx|g" deployment.yaml
       - git config --global user.email "omkarchavanbldea@gmail.com"
       - git config --global user.name "captain-omkar"
       - git add .
