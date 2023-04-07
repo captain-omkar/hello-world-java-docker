@@ -35,8 +35,8 @@ phases:
       - printf '[{"name":"order-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
       
-      - git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/loco-manifest -c credential.helper='!aws codecommit credential-helper $@' -c credential.UseHttpPath=true
-      - cd loco-manifest
+      - git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/manifest -c credential.helper='!aws codecommit credential-helper $@' -c credential.UseHttpPath=true
+      - cd manifest
       - echo "Hello, world!" > hello.txt
       - ls
       - git config --global user.email "omkarchavanbldea@gmail.com"
