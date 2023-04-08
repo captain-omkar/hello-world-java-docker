@@ -14,9 +14,9 @@ phases:
       - mvn clean install
       - echo Logging in to Amazon ECR...
       - aws --version
-      - sonar-scanner -X -Dsonar.projectKey=myproj -Dsonar.java.binaries=target/classes -Dsonar.sources=src -Dsonar.host.url=http://54.162.251.240:80 -Dsonar.login=dd6a5a868952ce197948b7367b40b304d7534810
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 286414711246.dkr.ecr.us-east-1.amazonaws.com/javaapp
-      - REPOSITORY_URI=286414711246.dkr.ecr.us-east-1.amazonaws.com/javaapp
+      - sonar-scanner -X -Dsonar.projectKey=myproj -Dsonar.java.binaries=target/classes -Dsonar.sources=src -Dsonar.host.url=http://<sonar-server-public-ip>:80 -Dsonar.login=<sonar-token>
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <ecr-URI>
+      - REPOSITORY_URI=<ecr-URI>
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
@@ -35,8 +35,8 @@ phases:
       - printf '[{"name":"order-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
       
-      - git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/manifest -c credential.helper='!aws codecommit credential-helper $@' -c credential.UseHttpPath=true
-      - cd manifest/base
+      - git clone <codecommit-https-url> -c credential.helper='!aws codecommit credential-helper $@' -c credential.UseHttpPath=true
+      - cd manifest/base #depends on repo directory its sample one i had in my repo 
       - ls
       - kubectl patch --local -f deployment.yaml -p '{"spec":{"template":{"spec":{"containers":[{"name":"rollouts-demo","image":"'$REPOSITORY_URI:$IMAGE_TAG'"}]}}}}' -o yaml > new-deployment.yaml
       - mv new-deployment.yaml deployment.yaml
